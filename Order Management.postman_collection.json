@@ -1,0 +1,352 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Order Management",
+		"_postman_id": "f816c827-0829-ea40-dd9c-e0d8d65afaaf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"description": "",
+			"item": [
+				{
+					"name": "Create product",
+					"request": {
+						"url": "http://localhost:8000/product/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Soap5\",\n\t\"description\": \"Soap5 for bathing. Lavender smell.\",\n\t\"price\": 200.00\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"url": "http://localhost:8000/product/2/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Soap2\",\n\t\"description\": \"Soap2 for bathing. Lavender smell.\",\n\t\"price\": \"120.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch product",
+					"request": {
+						"url": "http://localhost:8000/product/5/",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\": \"180.00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "List all products",
+					"request": {
+						"url": "http://localhost:8000/product/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Soap1\",\n\t\"description\": \"Soap1 for bathing. Lavender smell.\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve product detail",
+					"request": {
+						"url": "http://localhost:8000/product/1/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Soap1\",\n\t\"description\": \"Soap1 for bathing. Lavender smell.\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"url": "http://localhost:8000/product/1/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"url": "http://localhost:8000/order/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": \"USD\",\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 1,\n\t\t\t\"description\": \"first product\",\n\t\t\t\"quantity\":2\n\t\t},\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"second product\",\n\t\t\t\"quantity\": 1\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "List All Orders",
+					"request": {
+						"url": "http://localhost:8000/order/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": 1,\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"first product\"\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View Orders Details",
+					"request": {
+						"url": "http://localhost:8000/order/1/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": 1,\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"first product\"\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Orders",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8000/order?status=1&currency=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "currency",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": 1,\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"first product\"\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Order based on total price",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8000/order?ordering=total_desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "ordering",
+									"value": "total_desc",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": 1,\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"first product\"\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Filter based on total price of order",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8000/order?start_range=250&end_range=350",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "start_range",
+									"value": "250",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "end_range",
+									"value": "350",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currency\": 1,\n\t\"order_items\": [\n\t\t{\n\t\t\t\"product\": 2,\n\t\t\t\"description\": \"first product\"\n\t\t}\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Change status",
+					"request": {
+						"url": "http://localhost:8000/order/1/update_status/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": 3\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
